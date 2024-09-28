@@ -6,12 +6,12 @@ import re
 app = Flask(__name__)
 
 
-app.secret_key = 'your_secret_key_here'  # Replace 'your_secret_key_here' with an actual secure key
+app.secret_key = 'your_secret_key_here' 
 
 # MySQL configurations
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Gokul@6847'
+app.config['MYSQL_PASSWORD'] = 'your_db_password'
 app.config['MYSQL_DB'] = 'logindb'
 
 mysql = MySQL(app)
@@ -38,7 +38,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-    # Remove session data, log the user out
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
